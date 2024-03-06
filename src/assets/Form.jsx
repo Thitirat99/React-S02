@@ -1,32 +1,32 @@
 import { useState } from "react";
 import ShowName from "./ShowName";
 
-export default function Form() {
-  const [name, setName] = useState("");
-  const [displayName, setDisplayName] = useState(false);
+export default function From(){
+  const [name,setName] = useState("");
+  const [displayName,setDisplayName] = useState(false);
 
   const handleChange = (event) => {
     console.log(event);
     setName(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event)=>{
     event.preventDefault();
-    alert("A name was submitted: " + name);
-    console.log("A name was submitted: " + name);
+    alert("A name wa submitted: " + name);
+    console.log("A Name was submitted: " + name);
 
     name.length >= 5 ? setDisplayName(true) : setDisplayName(false);
   };
 
   return (
     <div>
-      <h1>Form to Input Data</h1>
+      <h1>From to Input Data</h1>
       <form>
         <label>
           Name:
           <input type="text" value={name} onChange={handleChange} />
         </label>
-        <input type="submit" value="Submit" onClick={handleSubmit} />
+        <input type="Submit" value="Submit" onChange={handleSubmit} />
       </form>
       <ShowName name={name} show={displayName} />
     </div>
